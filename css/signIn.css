@@ -1,0 +1,60 @@
+/* --- SPLIT CARD LAYOUT (Registration) --- */
+
+.split-card {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    overflow: hidden; /* Keeps image corners rounded */
+    min-height: 600px; /* Ensures the card is tall enough */
+    display: flex;     /* Works with Bootstrap row */
+}
+
+/* Left Side: Image Area */
+.split-image-side {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px; /* Fallback height for mobile */
+}
+
+/* Dark overlay so text is readable */
+.split-image-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+    z-index: 1;
+}
+
+.split-content {
+    position: relative;
+    z-index: 2; /* Sits on top of overlay */
+}
+
+/* Right Side: Form Area */
+.split-form-side {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 991px) {
+    .split-card {
+        flex-direction: column; /* Stack them on mobile */
+        min-height: auto;
+    }
+    
+    .split-image-side {
+        height: 250px; /* Specific height for mobile banner */
+    }
+    
+    .split-form-side {
+        padding: 30px;
+    }
+}
